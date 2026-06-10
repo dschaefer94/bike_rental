@@ -12,9 +12,10 @@ class CustomerModel extends Database
 
     public function deleteCustomer($id)
     {
-        try {
-            //TODO: Buchungshistorie wird durch "xx-deleted-user-xx" ersetzt, nicht gelöscht, Rollback?
+
+            //TODO: Buchungshistorie wird durch "xx-deleted-user-xx" ersetzt, dann gelöscht, Rollback?
             $pdo = $this->linkDB();
+        try {
             $stmt = $pdo->prepare("DELETE FROM customer WHERE id = :id");
             $stmt->execute([
                 ':id' => $id

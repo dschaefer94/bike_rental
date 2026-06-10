@@ -33,8 +33,9 @@ class BikeModel extends Database
 
     public function writeBike($data)
     {
-        try {
+
             $pdo = $this->linkDB();
+        try {
             $bikeNo = $data['bikeNo'];
             $bikeTypeId = $data['bikeTypeId'];
             $storeLocationId = $data['storeLocationId'];

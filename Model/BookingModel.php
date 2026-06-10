@@ -21,8 +21,9 @@ class BookingModel extends Database
         }
         $typ = (isset($_GET['type'])) && $_GET['type'] != '' ? ' AND bikeType.description = :type ' : '';
 
-        try {
+
             $pdo = $this->linkDB();
+        try {
             $sql = "SELECT bike.id, bike.bikeNo, bikeType.fee * :duration * :factor as price 
                     FROM bike 
                     INNER JOIN bikeType ON bike.bikeTypeId = bikeType.id 
